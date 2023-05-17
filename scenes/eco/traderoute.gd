@@ -14,7 +14,13 @@ func _process(_delta: float) -> void:
 func set_positions(node1, node2):
 	set_point_position(0,node1.global_position )
 	set_point_position(1,node2.global_position )
-
+	
+func send_resource(target, resource):
+	target.resource_list.append(resource)
+	
+func take_resource(target, resource):
+	target.resource_list.erase(resource)
+	
 func set_route(id, origin, resource, target):
 	resource_list[id] = [origin,resource, target]
 
