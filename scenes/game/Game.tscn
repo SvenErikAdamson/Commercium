@@ -32,6 +32,17 @@ position = Vector2(540, 283)
 node_name = "Jõgeva"
 node_owner = "player"
 
+[node name="Node5" parent="World/NodeManager" instance=ExtResource("2_n5wki")]
+position = Vector2(812, -69)
+node_name = "Vienna"
+node_owner = "player"
+
+[node name="Node6" parent="World/NodeManager" instance=ExtResource("2_n5wki")]
+position = Vector2(1036, 235)
+resource_list = ["vesi", "toit"]
+node_name = "Salzburg"
+node_owner = "player"
+
 [node name="Node4" parent="World/NodeManager" instance=ExtResource("2_n5wki")]
 position = Vector2(0, 456)
 resource_list = ["toit"]

@@ -6,9 +6,10 @@ extends StaticBody2D
 @export var resource_list: Array
 @export var node_name: String
 @export var node_owner: String
-
+@export var resources_demanded: Array
 var tradepartners: Dictionary
 var connector_there: bool = false
+
 
 func _ready():
 	node_manager.register_node(self)
