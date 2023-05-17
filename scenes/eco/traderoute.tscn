@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://d04wdi14vywgr"]
+
+[ext_resource type="Script" path="res://scenes/eco/traderoute.gd" id="1_jcxct"]
+
+[node name="Traderoute" type="Line2D"]
+z_index = -1
+points = PackedVector2Array(0, 0, 100, 100)
+default_color = Color(0, 0, 0, 0.823529)
+script = ExtResource("1_jcxct")
+
+[node name="Routes" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0

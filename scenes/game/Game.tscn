@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3 uid="uid://b2muih7r3dtie"]
+
+[ext_resource type="Script" path="res://scenes/node/nodemanager.gd" id="1_22mkq"]
+[ext_resource type="Script" path="res://scenes/world/world_manager.gd" id="1_anvtt"]
+[ext_resource type="PackedScene" uid="uid://dppsq25lir5ro" path="res://scenes/node/Node.tscn" id="2_n5wki"]
+[ext_resource type="Script" path="res://scenes/utility/world_camera.gd" id="4_eryub"]
+[ext_resource type="PackedScene" uid="uid://dy1o2gxby2b57" path="res://scenes/eco/ui/traderoute_ui.tscn" id="5_u8jc7"]
+
+[node name="Game" type="Node2D"]
+
+[node name="World" type="Node2D" parent="."]
+script = ExtResource("1_anvtt")
+
+[node name="NodeManager" type="Node" parent="World"]
+script = ExtResource("1_22mkq")
+
+[node name="GameTick" type="Timer" parent="World/NodeManager"]
+autostart = true
+
+[node name="Node" parent="World/NodeManager" instance=ExtResource("2_n5wki")]
+resource_list = ["toit", "vesi"]
+node_owner = "player"
+
+[node name="Node3" parent="World/NodeManager" instance=ExtResource("2_n5wki")]
+position = Vector2(-294, 242)
+resource_list = ["toit"]
+node_name = "Tartu"
+node_owner = "player"
+
+[node name="Node2" parent="World/NodeManager" instance=ExtResource("2_n5wki")]
+position = Vector2(540, 283)
+node_name = "Jõgeva"
+node_owner = "player"
+
+[node name="Node4" parent="World/NodeManager" instance=ExtResource("2_n5wki")]
+position = Vector2(0, 456)
+resource_list = ["toit"]
+node_name = "MarkusLand"
+
+[node name="MainCamera" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+script = ExtResource("4_eryub")
+
+[node name="GUI" type="CanvasLayer" parent="."]
+
+[node name="Main" type="Control" parent="GUI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Traderoute" parent="GUI/Main" instance=ExtResource("5_u8jc7")]
+visible = false
+layout_mode = 1
+
+[connection signal="timeout" from="World/NodeManager/GameTick" to="World/NodeManager" method="_on_game_tick_timeout"]

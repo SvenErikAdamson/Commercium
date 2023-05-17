@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://dppsq25lir5ro"]
+
+[ext_resource type="Script" path="res://scenes/node/node.gd" id="1_ubelw"]
+[ext_resource type="Texture2D" uid="uid://brwpcrkjl8sbt" path="res://icon.svg" id="2_ci27q"]
+[ext_resource type="Script" path="res://scenes/utility/sprite.gd" id="3_ct83k"]
+
+[node name="Node" type="StaticBody2D" groups=["locations"]]
+input_pickable = true
+script = ExtResource("1_ubelw")
+node_name = "Tallinn"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ci27q")
+script = ExtResource("3_ct83k")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(64, -60.8, 64, 59, 59.6, 64, -60.1, 64, -64, 60.7, -64, -59, -59, -63.8, 59.1, -64)
+
+[node name="Resources" type="Node" parent="."]
+
+[node name="NodeName" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -23.5
+offset_top = -96.0
+offset_right = 23.5
+offset_bottom = -70.0
+grow_horizontal = 2
+text = "Name
+"

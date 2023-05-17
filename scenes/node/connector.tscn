@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgelkgayvkdek"]
+
+[ext_resource type="Script" path="res://scenes/node/connector.gd" id="1_0qoak"]
+[ext_resource type="Texture2D" uid="uid://brwpcrkjl8sbt" path="res://icon.svg" id="2_3byl7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i4gra"]
+size = Vector2(12, 12)
+
+[node name="Connector" type="Line2D"]
+points = PackedVector2Array(0, 0, 0, 0)
+script = ExtResource("1_0qoak")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_3byl7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_i4gra")
